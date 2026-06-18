@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
 
 <title>Mix Santos</title>
 
 <style>
 
 body{
-font-family:Arial;
 margin:0;
+font-family:Arial;
 background:#f4f4f4;
 }
 
 header{
-background:#d70000;
+background:#d40000;
 color:white;
 padding:20px;
 text-align:center;
-font-size:28px;
+font-size:30px;
 font-weight:bold;
 }
 
@@ -30,74 +34,126 @@ padding:15px;
 .card{
 background:white;
 padding:15px;
-margin-bottom:10px;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
+margin-bottom:15px;
+border-radius:15px;
+
+box-shadow:
+0 2px 10px
+rgba(0,0,0,.08);
+}
+
+h3{
+margin:0;
 }
 
 button{
+
 width:100%;
-padding:12px;
-border:none;
-background:#008000;
+
+padding:14px;
+
+background:#1db954;
+
 color:white;
-border-radius:8px;
-font-size:16px;
+
+border:none;
+
+border-radius:10px;
+
+font-size:18px;
+
 }
 
 input{
+
 width:100%;
-padding:10px;
-margin-top:8px;
+
+padding:12px;
+
+margin-top:10px;
+
 margin-bottom:10px;
+
+box-sizing:border-box;
+
 }
 
 .total{
-font-size:22px;
+
+font-size:24px;
+
 font-weight:bold;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 MIX SANTOS
+
 </header>
 
 <div class="container">
 
 <div class="card">
-<h3>Arroz 5kg</h3>
-R$ 25
+
+<h3>🍚 Arroz 5kg</h3>
+
+<p>R$ 25</p>
+
 <button onclick="add('Arroz 5kg',25)">
+
 Adicionar
+
 </button>
+
 </div>
 
 <div class="card">
-<h3>Feijão</h3>
-R$ 10
+
+<h3>🫘 Feijão</h3>
+
+<p>R$ 10</p>
+
 <button onclick="add('Feijão',10)">
+
 Adicionar
+
 </button>
+
 </div>
 
 <div class="card">
-<h3>Café</h3>
-R$ 18
+
+<h3>☕ Café</h3>
+
+<p>R$ 18</p>
+
 <button onclick="add('Café',18)">
+
 Adicionar
+
 </button>
+
 </div>
 
 <div class="card">
-<h3>Refrigerante</h3>
-R$ 12
+
+<h3>🥤 Refrigerante</h3>
+
+<p>R$ 12</p>
+
 <button onclick="add('Refrigerante',12)">
+
 Adicionar
+
 </button>
+
 </div>
 
 <div class="card">
@@ -108,18 +164,25 @@ placeholder="Seu nome">
 
 <input
 id="endereco"
-placeholder="Endereço">
+placeholder="Seu endereço">
 
 <div class="total">
+
 Total:
-R$
-<span id="total">0</span>
+R$ <span id="total">
+
+0
+
+</span>
+
 </div>
 
 <br>
 
 <button onclick="enviar()">
-Enviar Pedido
+
+🛒 Enviar Pedido
+
 </button>
 
 </div>
@@ -129,6 +192,7 @@ Enviar Pedido
 <script>
 
 let itens=[]
+
 let total=0
 
 function add(nome,valor){
@@ -137,25 +201,30 @@ itens.push(nome)
 
 total+=valor
 
-document.getElementById(
-"total"
-).innerHTML=total
+document
+.getElementById("total")
+.innerHTML=total
 
 }
 
 function enviar(){
 
 let nome=
-document.getElementById(
+
+document
+.getElementById(
 "nome"
 ).value
 
 let endereco=
-document.getElementById(
+
+document
+.getElementById(
 "endereco"
 ).value
 
 let texto=
+
 `🛒 MIX SANTOS
 
 Cliente:
@@ -170,8 +239,9 @@ ${itens.join(", ")}
 Total:
 R$ ${total}`
 
-window.location.href =
-https://wa.me/5577991611104?text=${encodeURIComponent(texto)}
+window.location.href=
+
+`https://wa.me/5577991611104?text=${encodeURIComponent(texto)}`
 
 }
 
