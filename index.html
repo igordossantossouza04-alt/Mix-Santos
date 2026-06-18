@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mix Santos</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#d70000;
+color:white;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+padding:15px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin-bottom:10px;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#008000;
+color:white;
+border-radius:8px;
+font-size:16px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:10px;
+}
+
+.total{
+font-size:22px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+MIX SANTOS
+</header>
+
+<div class="container">
+
+<div class="card">
+<h3>Arroz 5kg</h3>
+R$ 25
+<button onclick="add('Arroz 5kg',25)">
+Adicionar
+</button>
+</div>
+
+<div class="card">
+<h3>Feijão</h3>
+R$ 10
+<button onclick="add('Feijão',10)">
+Adicionar
+</button>
+</div>
+
+<div class="card">
+<h3>Café</h3>
+R$ 18
+<button onclick="add('Café',18)">
+Adicionar
+</button>
+</div>
+
+<div class="card">
+<h3>Refrigerante</h3>
+R$ 12
+<button onclick="add('Refrigerante',12)">
+Adicionar
+</button>
+</div>
+
+<div class="card">
+
+<input
+id="nome"
+placeholder="Seu nome">
+
+<input
+id="endereco"
+placeholder="Endereço">
+
+<div class="total">
+Total:
+R$
+<span id="total">0</span>
+</div>
+
+<br>
+
+<button onclick="enviar()">
+Enviar Pedido
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let itens=[]
+let total=0
+
+function add(nome,valor){
+
+itens.push(nome)
+
+total+=valor
+
+document.getElementById(
+"total"
+).innerHTML=total
+
+}
+
+function enviar(){
+
+let nome=
+document.getElementById(
+"nome"
+).value
+
+let endereco=
+document.getElementById(
+"endereco"
+).value
+
+let texto=
+`🛒 MIX SANTOS
+
+Cliente:
+${nome}
+
+Endereço:
+${endereco}
+
+Produtos:
+${itens.join(", ")}
+
+Total:
+R$ ${total}`
+
+window.open(
+`https://wa.me/5500000000000?text=${encodeURIComponent(texto)}`
+)
+
+}
+
+</script>
+
+</body>
+
+</html>
