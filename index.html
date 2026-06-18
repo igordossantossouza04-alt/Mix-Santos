@@ -150,89 +150,6 @@ Adicionar
 
 <button onclick="add('Refrigerante',12)">
 
-Adicionar
-
-</button>
-
-</div>
-
-<div class="card">
-
-<input
-id="nome"
-placeholder="Seu nome">
-
-<input
-id="endereco"
-placeholder="Seu endereço">
-
-<div class="total">
-
-Total:
-R$ <span id="total">
-
-0
-
-</span>
-
-</div>
-
-<br>
-
-<button onclick="enviar()">
-
-🛒 Enviar Pedido
-
-</button>
-
-</div>
-
-</div>
-
-<script>
-
-let itens=[]
-
-let total=0
-
-function add(nome,valor){
-
-itens.push(nome)
-
-total+=valor
-
-document
-.getElementById("total")
-.innerHTML=total
-
-}
-
-function enviar(){
-
-let nome=
-
-document
-.getElementById(
-"nome"
-).value
-
-let endereco=
-
-document
-.getElementById(
-"endereco"
-).value
-
-let texto=
-
-`🛒 MIX SANTOS
-
-Cliente:
-${nome}
-
-Endereço:
-${endereco}
-
 Produtos:
 ${itens.join(", ")}
 
@@ -250,3 +167,29 @@ window.location.href=
 </body>
 
 </html>
+  function enviar(){
+
+let nome=
+document.getElementById("nome").value
+
+let endereco=
+document.getElementById("endereco").value
+
+let texto=
+
+`🛒 MIX SANTOS
+
+Cliente: ${nome}
+
+Endereço: ${endereco}
+
+Produtos: ${itens.join(", ")}
+
+Total: R$ ${total}`
+
+location.replace(
+"https://api.whatsapp.com/send?phone=5577991611104&text="+
+encodeURIComponent(texto)
+)
+
+}
